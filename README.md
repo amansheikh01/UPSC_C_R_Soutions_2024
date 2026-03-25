@@ -25,7 +25,7 @@ To demonstrate true computational mastery for the UPSC exams, **no high-level bu
 Every matrix inversion, statistical test, sorting algorithm, and probability distribution is implemented **100% manually from scratch** using raw loops, recurrence relations, and foundational logic. This ensures readers understand the pure mathematics happening under the hood.
 
 ## 🌐 View the Solutions
-👉 **[Click here to access the live UPSC Solutions Website](https://amansheikh01.github.io/UPSC_C_R_Soutions/)**
+👉 **[Click here to access the live UPSC Solutions Website](https://amansheikh01.github.io/UPSC_C_R_Soutions_2024/)**
 
 ---
 <div align="center">
