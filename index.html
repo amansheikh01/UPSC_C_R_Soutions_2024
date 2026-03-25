@@ -199,17 +199,17 @@ int main(){
     </div>
 
     <!-- ==================== Q13 (d) ==================== -->
-    <div class="question-section" id="q13d">
+ <div class="question-section" id="q13d">
         <h2>📌 Q13 (d) Fitting Binomial Distribution in R (10 Marks)</h2>
         
         <h3>📊 Theoretical Framework</h3>
-        <p>The Binomial probability mass function is given by:</p>
+        <p>Suppose that $X$ is binomial with parameters $(n, p)$. The Binomial probability mass function is given by:</p>
         <div class="math-display">
-            $$P(X=x)=\binom{n}{x}p^x(1-p)^{n-x}$$
+            $$P\{X = k\} = \binom{n}{k}p^k(1-p)^{n-k}$$
         </div>
-        <p>To avoid calculating large factorials, we use the recurrence relation:</p>
+        <p>To avoid calculating large factorials programmatically, we utilize the following relationship between $P\{X = k + 1\}$ and $P\{X = k\}$:</p>
         <div class="math-display">
-            $$P(X=x)=P(X=x-1)\times\frac{n-x+1}{x}\times\frac{p}{q}$$
+            $$P\{X = k + 1\} = \frac{p}{1 - p} \frac{n - k}{k + 1} P\{X = k\}$$
         </div>
 
         <h3>💻 R Code (Manual Implementation)</h3>
