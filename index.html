@@ -69,13 +69,28 @@
     </div>
 
     <!-- ==================== Q13 (a) ==================== -->
-    <div class="question-section" id="q13a">
+   <div class="question-section" id="q13a">
         <h2>📌 Q13 (a) Relational and Logical Operators in C (50 Marks)</h2>
         
-        <h3>📖 Introduction</h3>
-        <p>In C programming language, control of program execution is achieved through conditional and iterative constructs such as <code>if</code>, <code>if-else</code>, <code>switch</code>, <code>while</code>, and <code>for</code>. At the core of these constructs lie <strong>Relational</strong> and <strong>Logical</strong> operators.</p>
+        <h3>1. Introduction</h3>
+        <p>In C programming language, control of program execution is achieved through conditional and iterative constructs such as <code>if</code>, <code>if-else</code>, <code>switch</code>, <code>while</code>, and <code>for</code>.</p>
+        <p>At the core of these constructs lie <strong>Relational</strong> and <strong>Logical</strong> operators. These operators evaluate expressions and return truth values (0 or 1), thereby determining the flow of execution in structured programs.</p>
+        <p>From an examination perspective, understanding these operators is essential because they:</p>
+        <ul>
+            <li>Form the foundation of decision-making</li>
+            <li>Enable multi-condition evaluation</li>
+            <li>Ensure logical correctness of algorithms</li>
+            <li>Improve program efficiency through short-circuit evaluation</li>
+        </ul>
 
-        <h3>⚙️ Relational Operators</h3>
+        <h3>2. Relational Operators</h3>
+        <h4>2.1 Definition</h4>
+        <p>Relational operators are used to compare two operands. They evaluate the relationship between values and return:</p>
+        <div class="math-display">
+            $$1 \quad \text{(True)} \qquad \text{or} \qquad 0 \quad \text{(False)}$$
+        </div>
+
+        <h4>2.2 List of Relational Operators</h4>
         <table>
             <thead><tr><th>Operator</th><th>Meaning</th><th>Example Expression</th></tr></thead>
             <tbody>
@@ -88,25 +103,124 @@
             </tbody>
         </table>
 
-        <h3>🧠 Logical Operators & Truth Tables</h3>
-        <p>Logical operators combine multiple relational expressions. C uses <code>&amp;&amp;</code> (AND), <code>||</code> (OR), and <code>!</code> (NOT).</p>
-        
+        <h4>2.3 Working Mechanism</h4>
+        <p>Example:</p>
+<pre><code class="language-c">int a = 10, b = 20;
+int result = (a &lt; b);</code></pre>
+        <p>Since 10 is less than 20, the expression evaluates to <code>result = 1</code>. Thus, relational operators produce integer outputs suitable for conditional evaluation.</p>
+
+        <h4>2.4 Important Characteristics</h4>
+        <ul>
+            <li>Used mainly in conditional statements</li>
+            <li>Have lower precedence than arithmetic operators</li>
+            <li>Evaluate from left to right</li>
+            <li>Always produce Boolean-type integer output</li>
+        </ul>
+
+        <h3>3. Logical Operators</h3>
+        <h4>3.1 Definition</h4>
+        <p>Logical operators are used to combine two or more relational expressions. They are primarily used when multiple conditions must be tested simultaneously.</p>
+
+        <h4>3.2 List of Logical Operators</h4>
+        <table>
+            <thead><tr><th>Operator</th><th>Meaning</th><th>Symbol</th></tr></thead>
+            <tbody>
+                <tr><td>Logical AND</td><td>True if both conditions true</td><td><code>&amp;&amp;</code></td></tr>
+                <tr><td>Logical OR</td><td>True if at least one true</td><td><code>||</code></td></tr>
+                <tr><td>Logical NOT</td><td>Reverses truth value</td><td><code>!</code></td></tr>
+            </tbody>
+        </table>
+
+        <h3>4. Truth Tables</h3>
         <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 15px;">
             <table style="flex: 1; min-width: 200px;">
-                <thead><tr><th colspan="3">AND (<code>&amp;&amp;</code>)</th></tr><tr><th>A</th><th>B</th><th>Result</th></tr></thead>
+                <thead><tr><th colspan="3">AND (<code>&amp;&amp;</code>)</th></tr><tr><th>A</th><th>B</th><th>A &amp;&amp; B</th></tr></thead>
                 <tbody><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></tbody>
             </table>
             <table style="flex: 1; min-width: 200px;">
-                <thead><tr><th colspan="3">OR (<code>||</code>)</th></tr><tr><th>A</th><th>B</th><th>Result</th></tr></thead>
+                <thead><tr><th colspan="3">OR (<code>||</code>)</th></tr><tr><th>A</th><th>B</th><th>A || B</th></tr></thead>
                 <tbody><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></tbody>
+            </table>
+            <table style="flex: 1; min-width: 150px;">
+                <thead><tr><th colspan="2">NOT (<code>!</code>)</th></tr><tr><th>A</th><th>!A</th></tr></thead>
+                <tbody><tr><td>0</td><td>1</td></tr><tr><td>1</td><td>0</td></tr></tbody>
             </table>
         </div>
 
-        <h3>⚡ Short-Circuit Evaluation</h3>
-        <p>C implements short-circuit evaluation: In AND (<code>&amp;&amp;</code>), if the first condition is false, the second is not evaluated. In OR (<code>||</code>), if the first condition is true, the second is not evaluated. This prevents errors like division-by-zero.</p>
-        
+        <h3>5. Short-Circuit Evaluation</h3>
+        <p>C language implements short-circuit evaluation:</p>
+        <ul>
+            <li><strong>In AND (<code>&amp;&amp;</code>)</strong>: If first condition is false, second is not evaluated.</li>
+            <li><strong>In OR (<code>||</code>)</strong>: If first condition is true, second is not evaluated.</li>
+        </ul>
+        <p><strong>Example:</strong></p>
+<pre><code class="language-c">if (x != 0 &amp;&amp; y/x &gt; 2)</code></pre>
+        <p>If <code>x = 0</code>, the second condition is never evaluated. This prevents a division-by-zero error. Thus, logical operators improve both safety and efficiency.</p>
+
+        <h3>6. Operator Precedence and Associativity</h3>
+        <table>
+            <thead><tr><th>Operator</th><th>Precedence Level</th><th>Associativity</th></tr></thead>
+            <tbody>
+                <tr><td><code>!</code></td><td>Highest</td><td>Right to Left</td></tr>
+                <tr><td>Relational (<code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>)</td><td>Medium</td><td>Left to Right</td></tr>
+                <tr><td><code>==</code>, <code>!=</code></td><td>Lower than relational</td><td>Left to Right</td></tr>
+                <tr><td><code>&amp;&amp;</code></td><td>Lower</td><td>Left to Right</td></tr>
+                <tr><td><code>||</code></td><td>Lowest</td><td>Left to Right</td></tr>
+            </tbody>
+        </table>
+        <p>Understanding precedence is crucial to avoid logical errors.</p>
+
+        <h3>7. Common Errors and Pitfalls</h3>
+        <ul>
+            <li>Using <code>=</code> instead of <code>==</code></li>
+            <li>Confusing bitwise operators (<code>&amp;</code>, <code>|</code>) with logical operators (<code>&amp;&amp;</code>, <code>||</code>)</li>
+            <li>Ignoring operator precedence</li>
+            <li>Not using parentheses in complex expressions</li>
+        </ul>
+        <p>Example of common mistake:</p>
+<pre><code class="language-c">if (a = b)   /* Incorrect: Assignment instead of comparison */</code></pre>
+        <p>Correct form:</p>
+<pre><code class="language-c">if (a == b)</code></pre>
+
+        <h3>8. Practical Illustration</h3>
+<pre><code class="language-c">int age = 25;
+int salary = 50000;
+
+if (age &gt; 18 &amp;&amp; salary &gt; 30000)
+    printf("Eligible");</code></pre>
+        <p>Both relational and logical operators work together to implement decision-making logic.</p>
+
+        <h3>9. Conceptual Importance in Structured Programming</h3>
+        <p>Relational and Logical operators:</p>
+        <ul>
+            <li>Support modular and structured programming</li>
+            <li>Enable algorithmic control</li>
+            <li>Improve logical clarity</li>
+            <li>Form the basis of Boolean algebra implementation</li>
+        </ul>
+        <p>They are fundamental in:</p>
+        <ul>
+            <li>Input validation</li>
+            <li>Searching and sorting algorithms</li>
+            <li>Loop control</li>
+            <li>Error handling</li>
+        </ul>
+
+        <h3>10. UPSC Examination Master Summary Table</h3>
+        <table>
+            <thead><tr><th>Aspect</th><th>Key Insight</th><th>Exam Focus Area</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Relational Operators</strong></td><td>Compare two values</td><td>Always write return value (0/1)</td></tr>
+                <tr><td><strong>Logical Operators</strong></td><td>Combine conditions</td><td>Draw truth table for full marks</td></tr>
+                <tr><td><strong>Short-Circuiting</strong></td><td>Stops unnecessary evaluation</td><td>Mention safety advantage</td></tr>
+                <tr><td><strong>Precedence</strong></td><td><code>!</code> &gt; Relational &gt; <code>==</code> &gt; <code>&amp;&amp;</code> &gt; <code>||</code></td><td>Write order explicitly</td></tr>
+                <tr><td><strong>Common Mistakes</strong></td><td><code>=</code> vs <code>==</code> confusion</td><td>Examiner deducts marks here</td></tr>
+                <tr><td><strong>Application</strong></td><td>Used in control statements</td><td>Give one practical example</td></tr>
+            </tbody>
+        </table>
+
         <div class="conclusion-box">
-            <strong>Conclusion:</strong> Relational and Logical operators constitute the logical backbone of C programming. A clear conceptual understanding ensures high-scoring performance in descriptive examinations.
+            <strong>Conclusion:</strong> Relational and Logical operators constitute the logical backbone of C programming. They enable decision-making, ensure structured execution, and facilitate efficient algorithm design. A clear conceptual understanding, combined with knowledge of precedence, truth tables, and short-circuit behavior, ensures high-scoring performance in descriptive examinations.
         </div>
     </div>
 
@@ -402,37 +516,138 @@ int main() {
     </div>
 
     <!-- ==================== Q14 (d) ==================== -->
-    <div class="question-section" id="q14d">
-        <h2>📌 Q14 (d) Reading Matrices in R and Matrix Operations (25 Marks)</h2>
+   <div class="question-section" id="q14d">
+        <h2>📌 Q14 (d) Reading Matrices in R and Performing Matrix Operations (25 Marks)</h2>
         
-        <p>In statistical computing, performing operations manually builds deep understanding of linear algebra.</p>
+        <h3>📖 Introduction</h3>
+        <p>Matrices are fundamental data structures used in statistical computing and numerical analysis. A matrix is a two-dimensional rectangular array of elements arranged in rows and columns. In statistical applications, matrices are widely used for solving systems of equations, linear regression models, multivariate analysis, and scientific computing.</p>
+        <p>The programming language <strong>R</strong> provides efficient tools for matrix manipulation. However, for deeper understanding of matrix algebra, it is important to implement these operations manually rather than relying on built-in functions.</p>
+        <p>In this answer, we demonstrate how to read matrices in R and perform important matrix operations such as addition, multiplication, transpose, determinant, and inverse without using built-in functions.</p>
 
-        <h3>💻 Matrix Multiplication in R</h3>
+        <h3>📥 Reading a Matrix in R</h3>
+        <p>A matrix can be created by specifying the number of rows and columns and then reading elements from the user.</p>
+<pre><code class="language-r">n &lt;- as.integer(readline("Enter number of rows: "))
+m &lt;- as.integer(readline("Enter number of columns: "))
+
+A &lt;- matrix(0, n, m)
+
+for(i in 1:n) {
+  for(j in 1:m) {
+    A[i,j] &lt;- as.numeric(readline(paste("Enter element", i, j, ": ")))
+  }
+}
+
+print("Matrix A:")
+print(A)</code></pre>
+
+        <h3>➕ Matrix Addition</h3>
+        <p>Matrix addition is defined only when both matrices have the same dimensions. If $A$ and $B$ are matrices of order $n \times m$, their sum is given by:</p>
+        <div class="math-display">
+            $$C_{ij} = A_{ij} + B_{ij}$$
+        </div>
+<pre><code class="language-r">C &lt;- matrix(0, n, m)
+
+for(i in 1:n) {
+  for(j in 1:m) {
+    C[i,j] &lt;- A[i,j] + B[i,j]
+  }
+}
+
+print("Matrix Addition Result")
+print(C)</code></pre>
+
+        <h3>✖️ Matrix Multiplication</h3>
+        <p>Matrix multiplication is defined when the number of columns of the first matrix equals the number of rows of the second matrix.</p>
+        <div class="math-display">
+            $$C_{ij} = \sum_{k=1}^{m} A_{ik}B_{kj}$$
+        </div>
 <pre><code class="language-r">C &lt;- matrix(0, n, p)
+
 for(i in 1:n) {
   for(j in 1:p) {
     for(k in 1:m) {
       C[i,j] &lt;- C[i,j] + A[i,k] * B[k,j]
     }
   }
-}</code></pre>
+}
 
-        <h3>💻 Determinant via Cofactor Expansion (Recursive)</h3>
+print("Matrix Multiplication Result")
+print(C)</code></pre>
+
+        <h3>🔄 Transpose of a Matrix</h3>
+        <p>The transpose of a matrix is obtained by interchanging rows and columns. If $A$ is an $n \times m$ matrix, then its transpose $A^T$ is an $m \times n$ matrix.</p>
+<pre><code class="language-r">T_mat &lt;- matrix(0, m, n)
+
+for(i in 1:n) {
+  for(j in 1:m) {
+    T_mat[j,i] &lt;- A[i,j]
+  }
+}
+
+print("Transpose of Matrix")
+print(T_mat)</code></pre>
+
+        <h3>🧮 Determinant of a Matrix (Generalized Algorithm)</h3>
+        <p>The determinant is defined only for square matrices and is a scalar value that provides important information about the matrix. A recursive method using cofactor expansion can be used to compute the determinant.</p>
 <pre><code class="language-r">determinant &lt;- function(A) {
   n &lt;- nrow(A)
-  if(n == 1) return(A[1,1])
-  if(n == 2) return(A[1,1]*A[2,2] - A[1,2]*A[2,1])
-  
+
+  if(n == 1) {
+    return(A[1,1])
+  }
+
+  if(n == 2) {
+    return(A[1,1]*A[2,2] - A[1,2]*A[2,1])
+  }
+
   det &lt;- 0
+
   for(k in 1:n) {
     submatrix &lt;- A[-1, -k]
     det &lt;- det + ((-1)^(1+k)) * A[1,k] * determinant(submatrix)
   }
+
   return(det)
 }</code></pre>
-        
+
+        <h3>🔄 Inverse of a Matrix (General Method)</h3>
+        <p>The inverse of a matrix $A$ exists only if the determinant is non-zero.</p>
+        <div class="math-display">
+            $$A^{-1} = \frac{1}{|A|} \, adj(A)$$
+        </div>
+        <p>Where $adj(A)$ is the adjoint matrix. The following algorithm computes the inverse using cofactors.</p>
+<pre><code class="language-r">inverse_matrix &lt;- function(A) {
+  n &lt;- nrow(A)
+  detA &lt;- determinant(A)
+
+  if(detA == 0) {
+    print("Inverse does not exist")
+    return(NULL)
+  }
+
+  cof &lt;- matrix(0, n, n)
+
+  for(i in 1:n) {
+    for(j in 1:n) {
+      submatrix &lt;- A[-i, -j]
+      cof[i,j] &lt;- ((-1)^(i+j)) * determinant(submatrix)
+    }
+  }
+
+  # Manual transpose for the adjoint matrix
+  adj &lt;- matrix(0, n, n)
+  for(i in 1:n) {
+    for(j in 1:n) {
+      adj[j,i] &lt;- cof[i,j]
+    }
+  }
+
+  inv &lt;- adj / detA
+  return(inv)
+}</code></pre>
+
         <div class="conclusion-box">
-            <strong>Conclusion:</strong> Matrix operations form the backbone of statistical computing. Implementing operations like cofactor expansion manually helps in understanding models like linear regression and multivariate analysis.
+            <strong>Conclusion:</strong> Matrix operations form the backbone of statistical computing and numerical analysis. Although R provides many built-in functions for matrix manipulation, implementing these operations manually helps in understanding the underlying mathematical concepts such as cofactor expansion, adjoint matrices, and determinant computation. Such algorithms are widely used in advanced statistical modelling, linear regression, machine learning, and scientific computing.
         </div>
     </div>
 
